@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq user-full-name "John Wang"
+      user-mail-address "jzw2@illinois.edu")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -25,7 +25,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-fairy-floss)
+(setq doom-theme 'doom-fairy-floss) ;; I actually really like this theme
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -52,9 +52,33 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 ;;
-;;(load! "play-sound")
 
-(display-battery-mode t)
-(display-time-mode t)
-(setq auto-save-default t)
-(setq global-subword-mode t)
+(display-battery-mode t) ;; yay battery
+(display-time-mode t) ;; yay time
+(setq auto-save-default t) ;;yay save time
+(setq global-subword-mode t) ;; w goes though the stuff or whatetever
+
+(set-email-account! "Illinois"
+  '(
+    (mu4e-refile-folder     . "/Illinois/All Mail")
+    (smtpmail-smtp-user     . "jzw2@illinois.edu")
+    (mu4e-compose-signature . "John Wang"))
+  t)
+
+(setq mu4e-mu4e-mail-path "~/mbsync") ;; I don't think i actually got this to work because illinois email is dumb
+(setq org-pomodoro-ticking-sound-p t) ;; Whats that strange ticking sound
+(setq org-pomodoro-audio-player "afplay") ;; because I hate pulse audio and whoever designed it so that you could
+
+
+(after! avy
+  ;; home row priorities: 8 6 4 5 - - 1 2 3 7
+  (setq avy-keys '(?a ?o ?e ?u ?h ?t ?l ?s))) ;; setting the dvorak stuff uwu
+
+
+
+(after! company
+  (setq company-show-numbers t) ;;not sure what thuis does but whatever
+  )
+(setq which-key-idle-delay 0.5) ;; I need the help, I really do
+
+(elcord-mode) ;; flex on people
