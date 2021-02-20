@@ -66,7 +66,7 @@
   t)
 
 (setq mu4e-mu4e-mail-path "~/mbsync") ;; I don't think i actually got this to work because illinois email is dumb
-(setq org-pomodoro-ticking-sound-p t) ;; Whats that strange ticking sound
+;; (setq org-pomodoro-ticking-sound-p t) ;; Whats that strange ticking sound
 (setq org-pomodoro-audio-player "afplay") ;; because I hate pulse audio and whoever designed it so that you could
 
 
@@ -82,3 +82,5 @@
 (setq which-key-idle-delay 0.5) ;; I need the help, I really do
 
 (elcord-mode) ;; flex on people
+
+(setq org-pomodoro-finished-hook (lambda () (start-process-shell-command "osascript" nil "osascript -e 'display notification \"Pomodoro Ended\" with title \"Hey Hey you you\"'")))
