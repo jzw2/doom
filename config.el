@@ -54,7 +54,7 @@
 ;;
 
 (display-battery-mode t) ;; yay battery
-(display-time-mode t) ;; yay time
+;;(display-time-mode t) ;; yay time
 (setq auto-save-default t) ;;yay save time
 (setq global-subword-mode t) ;; w goes though the stuff or whatetever
 
@@ -83,4 +83,6 @@
 
 (elcord-mode) ;; flex on people
 
-(setq org-pomodoro-finished-hook (lambda () (start-process-shell-command "osascript" nil "osascript -e 'display notification \"Pomodoro Ended\" with title \"Hey Hey you you\"'")))
+;; not suer if I did this correctly
+(setq org-pomodoro-finished-hook (lambda () (start-process-shell-command "osascript" nil "osascript -e 'display notification \"Pomodoro Ended\" with title \"Hey Listen!!!\"'")))
+(setq org-pomodoro-break-finished-hook (lambda () (start-process-shell-command "osascript" nil "osascript -e 'display notification \"Break Ended, get back to work scrub\" with title \"Hey Listen!!!\"'")))

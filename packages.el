@@ -56,3 +56,6 @@
 (package! elcord)
 
 (package! info-colors)
+
+(package! 2048-game)
+(package! flappymacs)
