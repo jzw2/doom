@@ -86,3 +86,7 @@
 ;; not suer if I did this correctly
 (setq org-pomodoro-finished-hook (lambda () (start-process-shell-command "osascript" nil "osascript -e 'display notification \"Pomodoro Ended\" with title \"Hey Listen!!!\"'")))
 (setq org-pomodoro-break-finished-hook (lambda () (start-process-shell-command "osascript" nil "osascript -e 'display notification \"Break Ended, get back to work scrub\" with title \"Hey Listen!!!\"'")))
+
+
+(setq pdf-view-use-scaling t pdf-view-use-imagemagick nil) ;; please fix things
+(setq browse-url-browser-function 'xwidget-webkit-browse-url) ;; please work
