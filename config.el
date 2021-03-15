@@ -90,3 +90,11 @@
 
 (setq pdf-view-use-scaling t pdf-view-use-imagemagick nil) ;; please fix things
 (setq browse-url-browser-function 'xwidget-webkit-browse-url) ;; please work
+(setq org-agenda-todo-ignore-deadlines "near")
+(setq org-agenda-todo-ignore-scheduled "all")
+
+
+
+(setq +ivy-buffer-preview t)
+
+(add-hook 'text-mode-hook #'auto-fill-mode)

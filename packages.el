@@ -59,3 +59,5 @@
 
 (package! 2048-game)
 (package! flappymacs)
+
+(package! chess)
