@@ -62,4 +62,6 @@
 
 (package! chess)
 
-(package! versuri)
+;; (package! versuri) broken
+
+;; (package! lyrics) broken
