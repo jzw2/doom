@@ -49,7 +49,7 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! xkcd) ;; this ibroken??
+;; (package! xkcd) ;; this ibroken??
 
 (package! selectric-mode)
 
@@ -61,3 +61,5 @@
 (package! flappymacs)
 
 (package! chess)
+
+(package! versuri)
