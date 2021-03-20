@@ -98,3 +98,7 @@
 (setq +ivy-buffer-preview t)
 
 (add-hook 'text-mode-hook #'auto-fill-mode)
+(add-hook 'LaTeX-mode-hook #'turn-off-smartparens-mode)
+
+(setq prettify-symbols-unprettify-at-point t)
+(setq LaTeX-electric-left-right-brace t)
