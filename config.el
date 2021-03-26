@@ -81,7 +81,6 @@
   )
 (setq which-key-idle-delay 0.5) ;; I need the help, I really do
 
-(elcord-mode) ;; flex on people
 
 ;; not suer if I did this correctly
 (setq org-pomodoro-finished-hook (lambda () (start-process-shell-command "osascript" nil "osascript -e 'display notification \"Pomodoro Ended\" with title \"Hey Listen!!!\"'")))
@@ -102,3 +101,12 @@
 
 (setq prettify-symbols-unprettify-at-point t)
 (setq LaTeX-electric-left-right-brace t)
+(map! :map cdlatex-mode-map
+    :i "TAB" #'cdlatex-tab)
+
+(use-package! org-fragtog
+  :hook (org-mode . org-fragtog-mode)) ;; I kin dof doe'nt know what use packgae is usppode to do
+
+
+(elcord-mode) ;; flex on people
+(nyan-mode)
