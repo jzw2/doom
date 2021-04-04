@@ -68,3 +68,5 @@
 (package! nyan-mode :recipe (:host github :repo "TeMPOraL/nyan-mode"))
 
 (package! org-fragtog :pin "0151cabc7a...")
+
+(package! md4rd)

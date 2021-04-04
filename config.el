@@ -88,7 +88,7 @@
 
 
 (setq pdf-view-use-scaling t pdf-view-use-imagemagick nil) ;; please fix things
-(setq browse-url-browser-function 'xwidget-webkit-browse-url) ;; please work
+;; (setq browse-url-browser-function 'xwidget-webkit-browse-url) ;; this is actually kind of annoying
 (setq org-agenda-todo-ignore-deadlines "near")
 (setq org-agenda-todo-ignore-scheduled "all")
 
@@ -97,7 +97,10 @@
 (setq +ivy-buffer-preview t)
 
 (add-hook 'text-mode-hook #'auto-fill-mode)
-(add-hook 'LaTeX-mode-hook #'turn-off-smartparens-mode)
+;; (add-hook 'LaTeX-mode-hook (lambda () (if (eq major-mode 'org-mode)
+;;                                           (turn-on-smartparens-mode)
+;;                                         (turn-off-smartparens-mode)
+;;                                        )))
 
 (setq prettify-symbols-unprettify-at-point t)
 (setq LaTeX-electric-left-right-brace t)
