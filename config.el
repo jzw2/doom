@@ -97,10 +97,10 @@
 (setq +ivy-buffer-preview t)
 
 (add-hook 'text-mode-hook #'auto-fill-mode)
-;; (add-hook 'LaTeX-mode-hook (lambda () (if (eq major-mode 'org-mode)
-;;                                           (turn-on-smartparens-mode)
-;;                                         (turn-off-smartparens-mode)
-;;                                        )))
+(add-hook 'LaTeX-mode-hook (lambda () (if (eq major-mode 'org-mode)
+                                          (turn-on-smartparens-mode)
+                                        (turn-off-smartparens-mode)
+                                       )))
 
 (setq prettify-symbols-unprettify-at-point t)
 (setq LaTeX-electric-left-right-brace t)
@@ -112,6 +112,8 @@
 
 (setq org-pomodoro-short-break-sound "~/.doom.d/break_end.wav")
 (setq org-pomodoro-finished-sound "~/.doom.d/pom_end.wav" )
+
+(setq lsp-pyright-python-executable-cmd "python3") ;; stupid I should probably send a bug fix or something
 
 (elcord-mode) ;; flex on people
 (nyan-mode)
