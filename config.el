@@ -115,5 +115,12 @@
 
 (setq lsp-pyright-python-executable-cmd "python3") ;; stupid I should probably send a bug fix or something
 
+
+
+;;(setq k-custom-word-highlights '("Term"))
+
+(setq k-custom-highlights-regex "Int")
+
+
 (elcord-mode) ;; flex on people
 (nyan-mode)

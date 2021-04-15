@@ -64,7 +64,7 @@
 
 ;; (package! versuri) broken
 
-;; (package! lyrics) broken
+;; (package! lyricsiix jd ) broken
 (package! nyan-mode)
 
 (package! org-fragtog )
@@ -72,3 +72,10 @@
 (package! md4rd)
 
 (package! good-scroll)
+
+(package! smudge)
+
+
+(package! k-mode
+  :recipe (:host github :repo "kframework/k-editor-support"
+           :files ("emacs/k-mode.el")))
