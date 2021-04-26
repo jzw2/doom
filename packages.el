@@ -79,3 +79,7 @@
 (package! k-mode
   :recipe (:host github :repo "kframework/k-editor-support"
            :files ("emacs/k-mode.el")))
+
+(package! metamath-mode
+  :recipe (:host github :repo "samrushing/metamath-mode"
+           :files ("metamath-mode.el")))

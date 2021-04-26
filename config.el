@@ -122,5 +122,10 @@
 (setq k-custom-highlights-regex "Int")
 
 
+(use-package! metamath-mode
+  :commands (metamath-mode))
+
+
+
 (elcord-mode) ;; flex on people
 (nyan-mode)
