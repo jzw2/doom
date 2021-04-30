@@ -1,0 +1,13 @@
+#+TITLE:   My Config
+#+DATE:    April 29, 2021
+#+SINCE:   <replace with next tagged release version>
+#+STARTUP: inlineimages nofold
+
+
+Hi this is Doom config.
+
+You may have heard of so called "literate programming", and you may wonder if
+this is a literate config.  This is actually an "anti literate config", which
+basically means if you don't understand why I wrote something, I probably don't
+either.  Much of this was me randomly copy and pasting,  and some commenting and
+uncommenting of things, with minimal description of what it does.
