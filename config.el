@@ -53,7 +53,7 @@
 ;; they are implemented.
 ;;
 
-(display-battery-mode t) ;; yay battery
+;;(display-battery-mode t) ;; yay battery
 ;;(display-time-mode t) ;; yay time
 (setq auto-save-default t) ;;yay save time
 (setq global-subword-mode t) ;; w goes though the stuff or whatetever
@@ -76,9 +76,9 @@
 
 
 
-(after! company
-  (setq company-show-numbers t) ;;not sure what thuis does but whatever
-  )
+;; (after! company
+;;   (setq company-show-numbers t) ;;not sure what thuis does but whatever
+;;   )
 (setq which-key-idle-delay 0.5) ;; I need the help, I really do
 
 
