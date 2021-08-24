@@ -83,3 +83,5 @@
 (package! metamath-mode
   :recipe (:host github :repo "samrushing/metamath-mode"
            :files ("metamath-mode.el")))
+
+(unpin! org-roam company-org-roam)
