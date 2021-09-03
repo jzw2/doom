@@ -121,11 +121,17 @@
 
 (setq k-custom-highlights-regex "Int")
 
+(setq evil-respect-visual-line-mode t)
+
 
 (use-package! metamath-mode
   :commands (metamath-mode))
 
 
-
-(elcord-mode) ;; flex on people
-(nyan-mode)
+(use-package! nyan-mode
+  :commands nyan-mode
+  )
+(use-package! elcord
+  :commands elcord-mode
+  :config
+  (setq elcord-use-major-mode-as-main-icon t))
