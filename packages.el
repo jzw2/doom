@@ -55,6 +55,9 @@
 
 (package! elcord)
 
+(package! maude-mode)
+
+
 (package! info-colors)
 
 (package! 2048-game)
