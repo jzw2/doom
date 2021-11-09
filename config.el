@@ -115,8 +115,8 @@
 (map! :map cdlatex-mode-map
     :i "TAB" #'cdlatex-tab)
 
-(use-package! org-fragtog
-  :hook (org-mode . org-fragtog-mode)) ;; I kin dof doe'nt know what use packgae is usppode to do
+;; (use-package! org-fragtog
+;;   :hook (org-mode . org-fragtog-mode)) ;; I kin dof doe'nt know what use packgae is usppode to do
 
 (setq org-pomodoro-short-break-sound "~/.doom.d/break_end.wav")
 (setq org-pomodoro-finished-sound "~/.doom.d/pom_end.wav" )
