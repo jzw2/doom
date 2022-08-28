@@ -143,3 +143,4 @@
   :commands elcord-mode
   :config
   (setq elcord-use-major-mode-as-main-icon t))
+(setq +org-capture-todo-file "roam/todo.org")
