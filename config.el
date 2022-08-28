@@ -144,3 +144,4 @@
   :config
   (setq elcord-use-major-mode-as-main-icon t))
 (setq +org-capture-todo-file "roam/todo.org")
+(setq org-fold-core-style "overlays") ;; see https://github.com/org-roam/org-roam/issues/2198#issuecomment-1208072780
