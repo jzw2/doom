@@ -51,6 +51,7 @@
        workspaces        ; tab emulation, persistence & separate workspaces
        ;;zen               ; distraction-free coding or writing
 
+
        :editor
        (evil +everywhere ); come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
@@ -88,6 +89,7 @@
        ;;debugger          ; FIXME stepping through code, to help you add bugs
        ;;direnv
        ;;docker
+       ;;
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)     ; run code, run (also, repls)
@@ -168,8 +170,9 @@
        ;;web               ; the tubes
        yaml              ; JSON, but readable
 
+
        :email
-       ;;(mu4e +gmail)
+       (mu4e +gmail)
        ;;notmuch
        ;;(wanderlust +gmail)
 
