@@ -78,6 +78,8 @@
 
 (package! smudge)
 
+(package! anki-editor)
+
 
 (package! k-mode
   :recipe (:host github :repo "kframework/k-editor-support"
