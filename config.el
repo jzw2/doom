@@ -24,6 +24,7 @@
 ;;
 ;;
 
+(setq doom-font "Minecraft Mono")
 ;; (setq doom-font (font-spec :family "Noto Sans Mono" :size 16)
       ;; doom-big-font (font-spec :family "JetBrains Mono" :size 36)
       ;; doom-variable-pitch-font (font-spec :family "Noto Sans" :size 24)
