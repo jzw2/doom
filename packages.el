@@ -78,7 +78,10 @@
 
 (package! smudge)
 
-(package! anki-editor)
+;; (package! anki-editor) ;; Maintainer not active
+(package! org-anki) ;; active
+
+
 
 
 (package! k-mode
@@ -89,4 +92,4 @@
   :recipe (:host github :repo "samrushing/metamath-mode"
            :files ("metamath-mode.el")))
 
-(unpin! org-roam company-org-roam)
+;; (unpin! org-roam company-org-roam) ;; I don't know why I unpinned this
