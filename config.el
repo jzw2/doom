@@ -107,11 +107,13 @@
 
 (setq +ivy-buffer-preview t)
 
-(add-hook 'text-mode-hook #'auto-fill-mode)
-(add-hook 'LaTeX-mode-hook (lambda () (if (eq major-mode 'org-mode)
-                                          (turn-on-smartparens-mode)
-                                        (turn-off-smartparens-mode)
-                                       )))
+
+;; I don't know why I adde the ones below
+;; (add-hook 'text-mode-hook #'auto-fill-mode)
+;; (add-hook 'LaTeX-mode-hook (lambda () (if (eq major-mode 'org-mode)
+;;                                           (turn-on-smartparens-mode)
+;;                                         (turn-off-smartparens-mode)
+;;                                        )))
 
 (setq prettify-symbols-unprettify-at-point t)
 ;; (setq LaTeX-electric-left-right-brace t) ;; I don't rember why I enabled this
