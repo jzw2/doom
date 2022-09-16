@@ -67,9 +67,9 @@
 (setq auto-save-default t) ;;yay save time
 (setq global-subword-mode t) ;; w goes though the stuff or whatetever
 
-(set-email-account! "Illinois"
+(set-email-account! "outlook"
   '(
-    (mu4e-refile-folder     . "/Illinois/All Mail")
+    (mu4e-refile-folder     . "/mbsync/INBOX")
     (smtpmail-smtp-user     . "jzw2@illinois.edu")
     (mu4e-compose-signature . "John Wang"))
   t)
@@ -94,9 +94,11 @@
 ;; not suer if I did this correctly
 (setq org-pomodoro-finished-hook (lambda () (start-process-shell-command "osascript" nil "osascript -e 'display notification \"Pomodoro Ended\" with title \"Hey Listen!!!\"'")))
 (setq org-pomodoro-break-finished-hook (lambda () (start-process-shell-command "osascript" nil "osascript -e 'display notification \"Break Ended, get back to work scrub\" with title \"Hey Listen!!!\"'")))
+(setq org-pomodoro-tick-hook (lambda () (write-region (format "%s" org-pomodoro-mode-line) nil "~/pomodoro.txt")))
 
 
 (setq pdf-view-use-scaling t pdf-view-use-imagemagick nil) ;; please fix things
+;; according to the documentation of pdf view use image magick "This variable has no effect" wtf?
 ;; (setq browse-url-browser-function 'xwidget-webkit-browse-url) ;; this is actually kind of annoying
 (setq org-agenda-todo-ignore-deadlines "near")
 (setq org-agenda-todo-ignore-scheduled "all")
@@ -112,12 +114,12 @@
                                        )))
 
 (setq prettify-symbols-unprettify-at-point t)
-(setq LaTeX-electric-left-right-brace t)
+;; (setq LaTeX-electric-left-right-brace t) ;; I don't rember why I enabled this
 (map! :map cdlatex-mode-map
     :i "TAB" #'cdlatex-tab)
 
 ;; (use-package! org-fragtog
-;;   :hook (org-mode . org-fragtog-mode)) ;; I kin dof doe'nt know what use packgae is usppode to do
+;;
 
 (setq org-pomodoro-short-break-sound "~/.doom.d/break_end.wav")
 (setq org-pomodoro-finished-sound "~/.doom.d/pom_end.wav" )
@@ -128,14 +130,16 @@
 
 ;;(setq k-custom-word-highlights '("Term"))
 
-(setq k-custom-highlights-regex "Int")
+;; (setq k-custom-highlights-regex "Int") ;; I don't know what this is supposde to do
 
 (setq evil-respect-visual-line-mode t)
 
+(setq smtpmail-smtp-server 587)
 
 (use-package! metamath-mode
   :commands (metamath-mode))
 
+(use-package! metamath-mode)
 
 (use-package! nyan-mode
   :commands nyan-mode
@@ -144,5 +148,15 @@
   :commands elcord-mode
   :config
   (setq elcord-use-major-mode-as-main-icon t))
+
+
+(setq auto-revert-interval 0.5)
+
 (setq +org-capture-todo-file "roam/todo.org")
+
 (setq org-fold-core-style "overlays") ;; see https://github.com/org-roam/org-roam/issues/2198#issuecomment-1208072780
+
+(setq +notmuch-sync-backend 'mbsync)
+
+
+(add-to-list 'load-path "/Users/johnwang/.nix-profile/share/emacs/site-lisp/mu4e") ;; according to the troubleshooting for mu4e
