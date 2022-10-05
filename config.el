@@ -70,7 +70,7 @@
 (set-email-account! "outlook"
   '(
     (mu4e-refile-folder     . "/mbsync/INBOX")
-    (smtpmail-smtp-user     . "jzw2@illinois.edu")
+    (smtpmail-smtp-user     . "johnz.wang@outlook.com")
     (mu4e-compose-signature . "John Wang"))
   t)
 
@@ -166,3 +166,22 @@
 
 
 (add-to-list 'load-path "/Users/johnwang/.nix-profile/share/emacs/site-lisp/mu4e") ;; according to the troubleshooting for mu4e
+
+
+
+(after! org
+(add-to-list 'org-latex-packages-alist '("" "listings"))
+(add-to-list 'org-latex-packages-alist '("" "color"))
+(add-to-list 'org-latex-packages-alist '("" "minted"))
+ (setq org-fold-core-style 'overlays)
+  )
+(setq org-latex-src-block-backend 'minted) ;; add source blocks
+(setq org-latex-pdf-process '("LC_ALL=en_US.UTF-8 latexmk -f -pdf -%latex -shell-escape -interaction=nonstopmode -output-directory=%o %f"))
+
+
+(after! org-roam-dailies
+(add-to-list 'org-roam-dailies-capture-templates '("p" "pomodoro" entry "* %<%R>\n%?"
+                                                   :target
+  (file+head+olp "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n" ("Pomodoros"))))
+
+  )
