@@ -173,7 +173,7 @@
 (add-to-list 'org-latex-packages-alist '("" "listings"))
 (add-to-list 'org-latex-packages-alist '("" "color"))
 (add-to-list 'org-latex-packages-alist '("" "minted"))
- (setq org-fold-core-style 'overlays)
+ (setq org-fold-core-style 'overlays) ;; Apparently necassary to stop org folding from breaking
   )
 (setq org-latex-src-block-backend 'minted) ;; add source blocks
 (setq org-latex-pdf-process '("LC_ALL=en_US.UTF-8 latexmk -f -pdf -%latex -shell-escape -interaction=nonstopmode -output-directory=%o %f"))
