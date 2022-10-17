@@ -160,7 +160,7 @@
 
 (setq +org-capture-todo-file "roam/todo.org")
 
-(setq org-fold-core-style "overlays") ;; see https://github.com/org-roam/org-roam/issues/2198#issuecomment-1208072780
+;; (setq org-fold-core-style "overlays") ;; see https://github.com/org-roam/org-roam/issues/2198#issuecomment-1208072780
 
 (setq +notmuch-sync-backend 'mbsync)
 
@@ -173,6 +173,7 @@
 (add-to-list 'org-latex-packages-alist '("" "listings"))
 (add-to-list 'org-latex-packages-alist '("" "color"))
 (add-to-list 'org-latex-packages-alist '("" "minted"))
+(add-to-list 'org-latex-packages-alist '("" "svg"))
  (setq org-fold-core-style 'overlays) ;; Apparently necassary to stop org folding from breaking
   )
 (setq org-latex-src-block-backend 'minted) ;; add source blocks
@@ -185,3 +186,14 @@
   (file+head+olp "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n" ("Pomodoros"))))
 
   )
+
+;; (add-to-list 'org-capture-templates '("P" "pomodoro" entry "* %<%R>\n%?"
+;;   (file+headline "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n" ("Pomodoros"))))
+
+;; ;; ("t" "Personal todo" entry
+;;   ;; (file+headline +org-capture-todo-file "Inbox")
+;;   ;; "* [ ] %?\n%i\n%a" :prepend t)
+
+;;   )
+
+(map! :leader :desc "Capture my pomodoro " :n "1" (cmd! (org-roam-dailies-capture-today nil "p")))

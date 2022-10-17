@@ -55,7 +55,7 @@
        :editor
        (evil
 
-        ;;+everywhere ; breaks org mold folding
+        +everywhere ; breaks org mold folding
 
              ); come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
