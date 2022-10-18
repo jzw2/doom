@@ -184,6 +184,9 @@
 (add-to-list 'org-roam-dailies-capture-templates '("p" "pomodoro" entry "* %<%R>\n%?"
                                                    :target
   (file+head+olp "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n" ("Pomodoros"))))
+(add-to-list 'org-roam-dailies-capture-templates '("j" "Journal" entry "* %<%T>\n%?"
+                                                   :target
+  (file+head+olp "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n" ("Journal"))))
 
   )
 
@@ -197,3 +200,5 @@
 ;;   )
 
 (map! :leader :desc "Capture my pomodoro " :n "1" (cmd! (org-roam-dailies-capture-today nil "p")))
+(map! :leader :desc "Go to today" :n "2" (cmd! (org-roam-dailies-capture-today t "d")))
+(map! :leader :desc "Do a journal entry" :n "3" (cmd! (org-roam-dailies-capture-today nil "j")))
