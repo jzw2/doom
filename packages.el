@@ -93,3 +93,5 @@
            :files ("metamath-mode.el")))
 
 ;; (unpin! org-roam company-org-roam) ;; I don't know why I unpinned this
+
+(package! activity-watch-mode) 

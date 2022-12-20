@@ -3,7 +3,7 @@
 ;; This file controls what Doom modules are enabled and what order they load
 ;; in. Remember to run 'doom sync' after modifying it!
 
-;; NOTE Press 'SPC h d h' (or 'C-h d h' for non-vim users) to access Doom's
+;; NOTE fress 'SPC h d h' (or 'C-h d h' for non-vim users) to access Doom's
 ;;      documentation. There you'll find a "Module Index" link where you'll find
 ;;      a comprehensive list of Doom's modules and what flags they support.
 
@@ -139,7 +139,9 @@
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
        json              ; At least it ain't XML
-       ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
+       (java
+        ;; don't use meghananadnadn no work
+        +lsp) ; the poster child for carpal tunnel syndrome
        ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
@@ -177,7 +179,7 @@
 
        :email
        mu4e
-        notmuch
+        ;; notmuch
        ;;(wanderlust +gmail)
 
        :app
