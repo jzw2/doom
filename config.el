@@ -227,7 +227,7 @@
 (defun create-custom-buffer ()
   "Create a custom buffer with a larger text size."
   (interactive)
-  (let ((buffer (generate-new-buffer "custom-buffer")))
+  (let ((buffer (generate-new-buffer "lyrics")))
     (with-current-buffer buffer
       ;; Set a larger text size
       (setq buffer-face-mode-face '(:height 250))
@@ -258,7 +258,7 @@
                             (when (= 0 (process-exit-status process))
                               (kill-process process))))))
 
-(defun start-pipe-reading ()
+(defun start-lyrics ()
   "Create a custom buffer and start reading from a pipe."
   (interactive)
   (call-interactively #'read-from-pipe))
