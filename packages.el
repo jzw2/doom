@@ -85,6 +85,10 @@
 
 
 
+(package! ediprolog) ;; scryer
+
+
+
 
 (package! k-mode
   :recipe (:host github :repo "kframework/k-editor-support"
