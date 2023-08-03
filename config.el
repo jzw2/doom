@@ -24,7 +24,9 @@
 ;;
 ;;
 
-(setq doom-font "Minecraft Mono")
+;; (setq doom-font "Minecraft Mono")
+
+(setq doom-font "Fira Code")
 ;; (setq doom-font (font-spec :family "Noto Sans Mono" :size 16)
       ;; doom-big-font (font-spec :family "JetBrains Mono" :size 36)
       ;; doom-variable-pitch-font (font-spec :family "Noto Sans" :size 24)
@@ -99,6 +101,15 @@
                                          (write-region (nth 1 org-pomodoro-mode-line) nil "~/pomodoro.txt" nil 'shutup
                                                       ) nil)
                                ))
+
+;; magic that chatgpt gave me
+(after! org
+  (defun set-custom-font-for-org-mode ()
+    "Set custom font for org mode."
+    (interactive)
+    (setq buffer-face-mode-face '(:family "Minecraft Mono" :height 120))
+    (buffer-face-mode))
+  (add-hook 'org-mode-hook 'set-custom-font-for-org-mode))
 
 
 (setq pdf-view-use-scaling t pdf-view-use-imagemagick nil) ;; please fix things
@@ -203,6 +214,16 @@
 (map! :leader :desc "Go to today" :n "2" (cmd! (org-roam-dailies-capture-today t "d")))
 (map! :leader :desc "Do a journal entry" :n "3" (cmd! (org-roam-dailies-capture-today nil "j")))
 (setq prolog-system 'swi) ;; prolog stuff
+
+;; perl is ba
+(add-to-list 'auto-mode-alist '("\\.\\(pl\\|pro\\|lgt\\)" . prolog-mode))
+
+
+
+;; secrets
+(when (file-exists-p "~/.doom.d/secrets.el")
+    (load  "~/.doom.d/secrets.el"))
+
 
 
 (global-activity-watch-mode)

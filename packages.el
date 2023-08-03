@@ -55,6 +55,8 @@
 
 (package! elcord)
 
+(package! habitica)
+
 (package! maude-mode)
 
 
@@ -94,4 +96,9 @@
 
 ;; (unpin! org-roam company-org-roam) ;; I don't know why I unpinned this
 
-(package! activity-watch-mode) 
+(package! activity-watch-mode)
+
+(package! lean4-mode :recipe
+  (:host github
+   :repo "leanprover/lean4-mode"
+   :files ("*.el" "data")))
