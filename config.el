@@ -224,6 +224,44 @@
 (when (file-exists-p "~/.doom.d/secrets.el")
     (load  "~/.doom.d/secrets.el"))
 
+(defun create-custom-buffer ()
+  "Create a custom buffer with a larger text size."
+  (interactive)
+  (let ((buffer (generate-new-buffer "custom-buffer")))
+    (with-current-buffer buffer
+      ;; Set a larger text size
+      (setq buffer-face-mode-face '(:height 250))
+      (buffer-face-mode)
+      ;; Set your formatting here (like line-spacing, font, etc.)
+      (setq line-spacing nil)
+      ;; Display the buffer in a side window
+      (display-buffer-in-side-window buffer '((side . top))))
+    buffer))  ;; return the buffer
+
+(defun read-from-pipe ()
+  "Read from the specified PIPE and append to custom-buffer."
+  (interactive)
+  (let* ((buffer (create-custom-buffer))  ;; create the buffer first
+         (window (get-buffer-window buffer 0))  ;; get the window displaying the buffer
+         (process (start-process "pipe-process" nil "sptlrx" "pipe")))
+    (set-process-filter process
+                        (lambda (_process output)
+                          (with-current-buffer buffer
+                            (goto-char (point-max))  ;; go to the end of the buffer
+                            (insert output)  ;; insert the process output
+                            ;; scroll to the last two lines
+                            (set-window-start window (line-beginning-position -1))  ;; if it doesn't work, try replacing -1 with -2
+                            (set-window-point window (point-max)))))  ;; move the point to the end of the buffer
+    ;; Optional: Kill the process when the associated buffer is killed.
+    (set-process-sentinel process
+                          (lambda (process event)
+                            (when (= 0 (process-exit-status process))
+                              (kill-process process))))))
+
+(defun start-pipe-reading ()
+  "Create a custom buffer and start reading from a pipe."
+  (interactive)
+  (call-interactively #'read-from-pipe))
 
 
 (global-activity-watch-mode)
