@@ -248,10 +248,10 @@
                         (lambda (_process output)
                           (with-current-buffer buffer
                             (goto-char (point-max))  ;; go to the end of the buffer
-                            (insert output)  ;; insert the process output
+                              (insert "\n")  ;; insert a new line explicitly
+                        (insert (replace-regexp-in-string "\n\\'" "" output))
                             ;; scroll to the last two lines
-                            (set-window-start window (line-beginning-position -1))  ;; if it doesn't work, try replacing -1 with -2
-                            (set-window-point window (point-max)))))  ;; move the point to the end of the buffer
+                            (set-window-point window (point)))))  ;; move the point to the end of the buffer
     ;; Optional: Kill the process when the associated buffer is killed.
     (set-process-sentinel process
                           (lambda (process event)
