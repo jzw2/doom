@@ -249,16 +249,15 @@
     (set-process-filter process
                         (lambda (_process output)
                           (with-current-buffer buffer
-                            (goto-char (point-max))  ;; go to the end of the buffer
+                            (let ((original-point (window-point window)))  ;; store the original window point
+                              (goto-char (point-max))  ;; go to the end of the buffer
                               (insert "\n")  ;; insert a new line explicitly
-                        (insert (replace-regexp-in-string "\n\\'" "" output))
-                            ;; scroll to the last two lines
-
-(when (and (window-live-p window)  ;; check if the window is still live
-                                         (not (eq window (selected-window))))
-                            (set-window-point window (point)))
-
-                              )))  ;; move the point to the end of the buffer
+                              (insert (replace-regexp-in-string "\n\\'" "" output))  ;; insert the process output
+                              ;; scroll to the last two lines
+                              (if (and (window-live-p window)  ;; check if the window is still live
+                                       (not (eq window (selected-window))))  ;; check if the window is not currently selected
+                                  (set-window-point window (point-max))  ;; scroll to the end of the buffer
+                                (set-window-point window original-point))))))  ;; restore the original window point
     ;; Optional: Kill the process when the associated buffer is killed.
     (set-process-sentinel process
                           (lambda (process event)
