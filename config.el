@@ -230,12 +230,14 @@
   (let ((buffer (generate-new-buffer "lyrics")))
     (with-current-buffer buffer
       ;; Set a larger text size
-      (setq buffer-face-mode-face '(:height 250))
+      (setq buffer-face-mode-face '(:height 200))
       (buffer-face-mode)
       ;; Set your formatting here (like line-spacing, font, etc.)
       (setq line-spacing nil)
       ;; Display the buffer in a side window
-      (display-buffer-in-side-window buffer '((side . top))))
+      (let ((window (display-buffer-in-side-window buffer '((side . top)))))
+        ;; Manually set the window height to 2 text lines
+        (set-window-text-height window 3)))
     buffer))  ;; return the buffer
 
 (defun read-from-pipe ()
@@ -251,7 +253,12 @@
                               (insert "\n")  ;; insert a new line explicitly
                         (insert (replace-regexp-in-string "\n\\'" "" output))
                             ;; scroll to the last two lines
-                            (set-window-point window (point)))))  ;; move the point to the end of the buffer
+
+(when (and (window-live-p window)  ;; check if the window is still live
+                                         (not (eq window (selected-window))))
+                            (set-window-point window (point)))
+
+                              )))  ;; move the point to the end of the buffer
     ;; Optional: Kill the process when the associated buffer is killed.
     (set-process-sentinel process
                           (lambda (process event)
