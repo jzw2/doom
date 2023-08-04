@@ -227,27 +227,29 @@
 (defun create-custom-buffer ()
   "Create a custom buffer with a larger text size."
   (interactive)
-  (let ((buffer (generate-new-buffer "lyrics")))
+  (let ((buffer (get-buffer-create "lyrics")))
+    (unless (get-buffer-window buffer 0)
     (with-current-buffer buffer
       ;; Set a larger text size
       (setq buffer-face-mode-face '(:height 200))
       (buffer-face-mode)
-      ;; Set your formatting here (like line-spacing, font, etc.)
-      (setq line-spacing nil)
       ;; Display the buffer in a side window
       (let ((window (display-buffer-in-side-window buffer '((side . top)))))
         ;; Manually set the window height to 2 text lines
-        (set-window-text-height window 3)))
+        (set-window-text-height window 3))))
     buffer))  ;; return the buffer
 
 (defun read-from-pipe ()
   "Read from the specified PIPE and append to custom-buffer."
   (interactive)
-  (let* ((buffer (create-custom-buffer))  ;; create the buffer first
-         (window (get-buffer-window buffer 0))  ;; get the window displaying the buffer
-         (process (start-process "pipe-process" nil "sptlrx" "pipe")))
+  (let* (  ;; get the window displaying the buffer
+         (process (get-process "lyrics-process")))
+ (unless process
+      (setq process (start-process "lyrics-process" nil "sptlrx" "pipe"))
     (set-process-filter process
                         (lambda (_process output)
+                          (let* ((buffer (create-custom-buffer))  ;; create the buffer first
+         (window (get-buffer-window buffer 0)))
                           (with-current-buffer buffer
                             (let ((original-point (window-point window)))  ;; store the original window point
                               (goto-char (point-max))  ;; go to the end of the buffer
@@ -257,12 +259,12 @@
                               (if (and (window-live-p window)  ;; check if the window is still live
                                        (not (eq window (selected-window))))  ;; check if the window is not currently selected
                                   (set-window-point window (point-max))  ;; scroll to the end of the buffer
-                                (set-window-point window original-point))))))  ;; restore the original window point
+                                (set-window-point window original-point)))))))  ;; restore the original window point
     ;; Optional: Kill the process when the associated buffer is killed.
     (set-process-sentinel process
                           (lambda (process event)
                             (when (= 0 (process-exit-status process))
-                              (kill-process process))))))
+                              (kill-process process)))))))
 
 (defun start-lyrics ()
   "Create a custom buffer and start reading from a pipe."
