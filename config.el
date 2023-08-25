@@ -272,4 +272,4 @@
   (call-interactively #'read-from-pipe))
 
 
-(global-activity-watch-mode)
+;; (global-activity-watch-mode)
