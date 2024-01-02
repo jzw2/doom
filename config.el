@@ -149,7 +149,13 @@
 
 ;; (setq k-custom-highlights-regex "Int") ;; I don't know what this is supposde to do
 
-(setq evil-respect-visual-line-mode t)
+;; (setq global-visual-line-mode t)
+;; (use-package-hook! evil
+;;   :pre-init
+;;   (setq evil-respect-visual-line-mode t) ;; sane j and k behavior
+;;   t)
+;;   Apparently the above doesn't work becaus eof
+;;   https://github.com/doomemacs/doomemacs/issues/401
 
 (setq smtpmail-smtp-server 587)
 
@@ -231,7 +237,7 @@
     (unless (get-buffer-window buffer 0)
     (with-current-buffer buffer
       ;; Set a larger text size
-      (setq buffer-face-mode-face '(:height 200))
+      (setq buffer-face-mode-face '(:height 150))
       (buffer-face-mode)
       ;; Display the buffer in a side window
       (let ((window (display-buffer-in-side-window buffer '((side . top)))))
@@ -273,3 +279,7 @@
 
 
 ;; (global-activity-watch-mode)
+
+(with-eval-after-load 'tex
+  (add-to-list 'safe-local-variable-values
+               '(TeX-command-extra-options . "-shell-escape")))
