@@ -106,3 +106,5 @@
   (:host github
    :repo "leanprover/lean4-mode"
    :files ("*.el" "data")))
+
+(package! conllu-mode) ;; universal dependencies
