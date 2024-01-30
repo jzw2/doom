@@ -102,6 +102,9 @@
 
 (package! activity-watch-mode)
 
+
+(package! csv-mode)
+
 (package! lean4-mode :recipe
   (:host github
    :repo "leanprover/lean4-mode"
